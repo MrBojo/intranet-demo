@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Cargo Solutions — Intranet</title>
+  <!-- Externý CSS súbor so štýlmi -->
+  <link rel="stylesheet" href="styleD.css">
+  <!-- Google Font pre firemný vzhľad -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===================== NAVIGAČNÝ BAR ===================== -->
+  <header class="navbar">
+    <!-- Logo / názov intranetu -->
+    <div class="navbar-brand">
+      <span class="logo-icon">&#9878;</span> <!-- Symbol štvorca / cargo -->
+      Global Cargo Solutions <span class="brand-thin">Intranet</span>
+    </div>
+    <!-- Pravá strana navigácie -->
+    <div class="navbar-right">
+      <span class="internal-badge">Internal Use Only</span>
+    </div>
+  </header>
+
+  <!-- ===================== PRIHLASOVACÍ FORMULÁR ===================== -->
+  <main id="login-screen" class="login-wrapper">
+    <div class="login-card">
+      <h1 class="login-title">Prihlásenie do intranetu</h1>
+      <p class="login-subtitle">Pre prístup do interných systémov sa prihláste svojím firemným účtom.</p>
+
+      <!-- Pole pre e-mail -->
+      <label for="email">Firemný e-mail</label>
+      <input type="email" id="email" placeholder="meno@globalcargosolutions.ltd" autocomplete="off">
+
+      <!-- Pole pre heslo -->
+      <label for="password">Heslo</label>
+      <input type="password" id="password" placeholder="Zadajte heslo">
+
+      <!-- Chybová hláška (skrytá) -->
+      <p id="login-error" class="error-msg"></p>
+
+      <!-- Tlačidlo prihlásenia -->
+      <button id="login-btn" class="btn btn-primary btn-full">Prihlásiť sa</button>
+    </div>
+  </main>
+
+  <!-- ===================== DASHBOARD (po prihlásení) ===================== -->
+  <main id="dashboard-screen" class="dashboard-wrapper hidden">
+
+    <!-- Záložky / navigácia sekcií -->
+    <nav class="tabs">
+      <button class="tab active" data-tab="dashboard">Dashboard</button>
+      <button class="tab" data-tab="inbox">Doručená pošta</button>
+      <button class="tab" data-tab="documents">Dokumenty</button>
+      <button class="tab" data-tab="poll">Office anketa</button>
+      <button class="tab" data-tab="mail">Odoslať mail</button>
+      <button class="tab" data-tab="profile">Profil</button>
+    </nav>
+
+    <!-- ===== Sekcia: Dashboard ===== -->
+    <section id="tab-dashboard" class="tab-content active">
+      <h2>Vitajte, Damián</h2>
+      <p class="section-subtitle">Prehľad vášho pracovného dňa</p>
+
+      <div class="cards">
+        <!-- Karta 1 -->
+        <div class="card">
+          <div class="card-icon">&#128203;</div>
+          <h3>Otvorené úlohy</h3>
+          <p class="card-value">7</p>
+          <p class="card-desc">3 s termínom dnes</p>
+        </div>
+        <!-- Karta 2 -->
+        <div class="card">
+          <div class="card-icon">&#128227;</div>
+          <h3>Firemné oznamy</h3>
+          <p class="card-value">2 nové</p>
+          <p class="card-desc">Team building plánovaný na jún</p>
+        </div>
+        <!-- Karta 3 -->
+        <div class="card">
+          <div class="card-icon">&#9989;</div>
+          <h3>Stav systémov</h3>
+          <p class="card-value card-value--green">Všetko OK</p>
+          <p class="card-desc">Posledná kontrola: 08:00</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Sekcia: Doručená pošta ===== -->
+    <section id="tab-inbox" class="tab-content">
+      <h2>Doručená pošta</h2>
+      <p class="section-subtitle">Interné firemné správy</p>
+
+      <!-- Zoznam e-mailov -->
+      <div class="inbox-list" id="inbox-list">
+        <!-- Mail od HR -->
+        <div class="inbox-item" data-mail="hr">
+          <div class="inbox-item-dot read"></div>
+          <div class="inbox-item-info">
+            <div class="inbox-item-header">
+              <strong>HR Oddelenie</strong>
+              <span class="inbox-item-time">dnes, 09:30</span>
+            </div>
+            <div class="inbox-item-subject">Aktualizácia home office pravidiel</div>
+            <div class="inbox-item-preview">Vážení kolegovia, od pondelka platia aktualizované pravidlá pre prácu z domu…</div>
+          </div>
+        </div>
+
+        <!-- Mail od manažéra -->
+        <div class="inbox-item" data-mail="manager">
+          <div class="inbox-item-dot read"></div>
+          <div class="inbox-item-info">
+            <div class="inbox-item-header">
+              <strong>Samuel Bojanovský</strong>
+              <span class="inbox-item-time">včera, 15:20</span>
+            </div>
+            <div class="inbox-item-subject">Podklady k Q3 rozpočtu</div>
+            <div class="inbox-item-preview">Ahoj Damián, vieš mi prosím poslať aktualizovanú revíziu rozpočtu za Q3?…</div>
+          </div>
+        </div>
+
+        <!-- Mail od IT -->
+        <div class="inbox-item" data-mail="it">
+          <div class="inbox-item-dot read"></div>
+          <div class="inbox-item-info">
+            <div class="inbox-item-header">
+              <strong>IT Podpora</strong>
+              <span class="inbox-item-time">včera, 11:00</span>
+            </div>
+            <div class="inbox-item-subject">Plánovaná údržba VPN — piatok 18:00</div>
+            <div class="inbox-item-preview">Informujeme vás, že v piatok večer prebehne plánovaná údržba VPN prístupu…</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail e-mailu (skrytý, zobrazí sa po kliknutí) -->
+      <div id="email-detail-damian" class="email-detail hidden">
+        <button class="btn btn-back" id="back-to-inbox-damian">&larr; Späť na poštu</button>
+
+        <div class="email-detail-card">
+          <div class="email-detail-header" id="detail-header">
+            <!-- Dynamicky naplnené cez JS -->
+          </div>
+          <h3 class="email-detail-subject" id="detail-subject"></h3>
+          <div class="email-detail-body" id="detail-body"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Sekcia: Dokumenty ===== -->
+    <section id="tab-documents" class="tab-content">
+      <h2>Dokumenty</h2>
+      <p class="section-subtitle">Zdieľané firemné súbory</p>
+
+      <ul class="doc-list">
+        <li class="doc-item">
+          <span class="doc-icon">&#128196;</span>
+          <div>
+            <strong>Q3 Budget Review.pdf</strong>
+            <small>Nahratý: 12. 3. 2026 — 2.4 MB</small>
+          </div>
+        </li>
+        <li class="doc-item">
+          <span class="doc-icon">&#128202;</span>
+          <div>
+            <strong>Delivery Routes.xlsx</strong>
+            <small>Nahratý: 28. 2. 2026 — 890 KB</small>
+          </div>
+        </li>
+        <li class="doc-item">
+          <span class="doc-icon">&#128196;</span>
+          <div>
+            <strong>Vendor Contracts.docx</strong>
+            <small>Nahratý: 5. 1. 2026 — 1.1 MB</small>
+          </div>
+        </li>
+        <li class="doc-item">
+          <span class="doc-icon">&#128196;</span>
+          <div>
+            <strong>Employee Handbook 2026.pdf</strong>
+            <small>Nahratý: 2. 1. 2026 — 4.7 MB</small>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== Sekcia: Office anketa ===== -->
+    <section id="tab-poll" class="tab-content">
+      <h2>Office anketa</h2>
+      <p class="section-subtitle">Hlasuj za kávu do nášho kávovaru!</p>
+
+      <div class="poll-box">
+        <!-- Radio buttony pre výber -->
+        <label class="poll-option">
+          <input type="radio" name="coffee" value="kolumbijska"> Kolumbijská pražená
+        </label>
+        <label class="poll-option">
+          <input type="radio" name="coffee" value="etiopska"> Etiópska arabika
+        </label>
+        <label class="poll-option">
+          <input type="radio" name="coffee" value="silnejsia"> Silnejšia zmes
+        </label>
+        <label class="poll-option">
+          <input type="radio" name="coffee" value="kavovar"> Nový kávovar
+        </label>
+
+        <button id="poll-btn" class="btn btn-primary">Odoslať hlas</button>
+        <p id="poll-msg" class="success-msg"></p>
+      </div>
+    </section>
+
+    <!-- ===== Sekcia: Odoslať mail ===== -->
+    <section id="tab-mail" class="tab-content">
+      <h2>Odoslať mail</h2>
+      <p class="section-subtitle">Interná firemná pošta</p>
+
+      <div class="mail-form">
+        <label for="mail-to">Komu</label>
+        <input type="email" id="mail-to" value="samuel.bojanovsky@globalcargosolutions.ltd">
+
+        <label for="mail-subject">Predmet</label>
+        <input type="text" id="mail-subject" value="Revízia rozpočtu Q3">
+
+        <label for="mail-body">Správa</label>
+        <textarea id="mail-body" rows="6">Ahoj Samuel,
+
+prepáč za meškanie. Posielam tú revíziu rozpočtu za Q3. Namiesto prílohy som to nahral na náš cloud, nakoľko s tým od včera boli nejaké problémy.
+
+Tu je link na dokument:
+https://globalcargosolutions.ltd/cloud/document-1
+
+Ďakujem,
+Damián</textarea>
+
+        <button id="mail-btn" class="btn btn-primary">Odoslať</button>
+        <p id="mail-msg" class="success-msg"></p>
+      </div>
+    </section>
+
+    <!-- ===== Sekcia: Profil ===== -->
+    <section id="tab-profile" class="tab-content">
+      <h2>Profil</h2>
+      <p class="section-subtitle">Informácie o vašom účte</p>
+
+      <div class="profile-card">
+        <div class="profile-avatar">DK</div>
+        <div class="profile-info">
+          <p><strong>Meno:</strong> Damián Kováč</p>
+          <p><strong>Oddelenie:</strong> Logistics Operations</p>
+          <p><strong>Lokalita:</strong> Bratislava</p>
+          <p><strong>Posledné prihlásenie:</strong> Today, 08:12</p>
+        </div>
+      </div>
+
+      <button id="logout-btn" class="btn btn-outline">Odhlásiť sa</button>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    &copy; 2026 Global Cargo Solutions &mdash; Internal Portal Demo
+  </footer>
+
+  <!-- Externý JavaScript -->
+  <script src="scriptD.js"></script>
+</body>
+</html>
